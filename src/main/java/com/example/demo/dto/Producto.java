@@ -1,6 +1,14 @@
 package com.example.demo.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="productos")
 public class Producto {
+	
+	@Id
 	private String codigo;
 	private String nombre;
 	private Double valor;
