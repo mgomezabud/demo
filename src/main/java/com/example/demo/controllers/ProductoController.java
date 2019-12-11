@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.Producto;
+import com.example.demo.exceptions.RegistroNoExistenteException;
 import com.example.demo.repository.ProductoRepository;
 
 @RestController
@@ -36,7 +37,7 @@ public class ProductoController {
 	@GetMapping("/{codigo}/")
 	public Producto consultarxCodigo(@PathVariable String codigo) {
 		return this.productoRepository.findById(codigo)
-				.orElseThrow(() -> new RuntimeException("PRODUCTO_NO_ENCONTRADO"));
+				.orElseThrow(() -> new RegistroNoExistenteException("PRODUCTO_NO_ENCONTRADO"));
 	}
 
 }
